@@ -36,7 +36,7 @@ dnsx -l collect_subdomains.txt -silent -a -resp | sed 's/\[//g' | sed 's/\]//g' 
 bash Generate_yaml.sh
 ```
 
-运行cobweb.py，浏览器会自动打开
+4. 运行cobweb.py，浏览器会自动打开
 
 ```
 sudo python3 cobweb.py --domain tesla.com --file active_subdomains/subdomains2ips.yaml
