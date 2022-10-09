@@ -6,6 +6,8 @@ cobweb 蛛网 将关联数据进行可视化显示，方便快速定位目标资
 
 # 效果图
 
+测试页：https://www.se7ensec.cn/cobweb/
+
 网状显示关系可拖动
 
 ![](img/cobweb1.jpg)
