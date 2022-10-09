@@ -1,0 +1,473 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+                <link href="lib/tom-select/tom-select.css" rel="stylesheet">
+                <script src="lib/tom-select/tom-select.complete.min.js"></script>
+            
+        
+<center>
+<h1><script>document.getElementsByTagName("center")[0].remove()</script></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1><script>document.getElementsByTagName("center")[0].remove()</script></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 2000px;
+                 background-color: #2d2e2e;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="tesla.com">tesla.com</option>
+                                
+                                    <option value="149.72.163.58">149.72.163.58</option>
+                                
+                                    <option value="o4.ptr1867.tesla.com">o4.ptr1867.tesla.com</option>
+                                
+                                    <option value="13.111.49.179">13.111.49.179</option>
+                                
+                                    <option value="view.emails.tesla.com">view.emails.tesla.com</option>
+                                
+                                    <option value="184.30.18.203">184.30.18.203</option>
+                                
+                                    <option value="13.111.14.190">13.111.14.190</option>
+                                
+                                    <option value="mta.email.tesla.com">mta.email.tesla.com</option>
+                                
+                                    <option value="149.72.247.52">149.72.247.52</option>
+                                
+                                    <option value="o1.ptr2410.link.tesla.com">o1.ptr2410.link.tesla.com</option>
+                                
+                                    <option value="149.72.134.64">149.72.134.64</option>
+                                
+                                    <option value="o2.ptr556.tesla.com">o2.ptr556.tesla.com</option>
+                                
+                                    <option value="168.245.123.10">168.245.123.10</option>
+                                
+                                    <option value="o6.ptr9437.tesla.com">o6.ptr9437.tesla.com</option>
+                                
+                                    <option value="23.9.66.10">23.9.66.10</option>
+                                
+                                    <option value="204.74.99.100">204.74.99.100</option>
+                                
+                                    <option value="itanswers.tesla.com">itanswers.tesla.com</option>
+                                
+                                    <option value="xmail.tesla.com">xmail.tesla.com</option>
+                                
+                                    <option value="13.111.88.52">13.111.88.52</option>
+                                
+                                    <option value="mta4.emails.tesla.com">mta4.emails.tesla.com</option>
+                                
+                                    <option value="149.72.144.42">149.72.144.42</option>
+                                
+                                    <option value="o7.ptr6980.tesla.com">o7.ptr6980.tesla.com</option>
+                                
+                                    <option value="8.45.124.215">8.45.124.215</option>
+                                
+                                    <option value="vpn1.tesla.com">vpn1.tesla.com</option>
+                                
+                                    <option value="13.111.4.231">13.111.4.231</option>
+                                
+                                    <option value="mta2.email.tesla.com">mta2.email.tesla.com</option>
+                                
+                                    <option value="149.72.152.236">149.72.152.236</option>
+                                
+                                    <option value="o3.ptr1444.tesla.com">o3.ptr1444.tesla.com</option>
+                                
+                                    <option value="184.85.228.70">184.85.228.70</option>
+                                
+                                    <option value="96.16.108.43">96.16.108.43</option>
+                                
+                                    <option value="205.234.27.221">205.234.27.221</option>
+                                
+                                    <option value="shop.eu.tesla.com">shop.eu.tesla.com</option>
+                                
+                                    <option value="model3.tesla.com">model3.tesla.com</option>
+                                
+                                    <option value="13.111.88.53">13.111.88.53</option>
+                                
+                                    <option value="mta5.emails.tesla.com">mta5.emails.tesla.com</option>
+                                
+                                    <option value="104.119.104.74">104.119.104.74</option>
+                                
+                                    <option value="149.72.172.170">149.72.172.170</option>
+                                
+                                    <option value="o5.ptr8466.tesla.com">o5.ptr8466.tesla.com</option>
+                                
+                                    <option value="199.66.9.47">199.66.9.47</option>
+                                
+                                    <option value="www-uat.tesla.com">www-uat.tesla.com</option>
+                                
+                                    <option value="23.201.26.71">23.201.26.71</option>
+                                
+                                    <option value="13.111.47.195">13.111.47.195</option>
+                                
+                                    <option value="events.tesla.com">events.tesla.com</option>
+                                
+                                    <option value="13.111.18.27">13.111.18.27</option>
+                                
+                                    <option value="emails.tesla.com">emails.tesla.com</option>
+                                
+                                    <option value="13.111.88.1">13.111.88.1</option>
+                                
+                                    <option value="mta2.emails.tesla.com">mta2.emails.tesla.com</option>
+                                
+                                    <option value="13.111.47.196">13.111.47.196</option>
+                                
+                                    <option value="marketing.tesla.com">marketing.tesla.com</option>
+                                
+                                    <option value="64.125.183.133">64.125.183.133</option>
+                                
+                                    <option value="comparison.tesla.com">comparison.tesla.com</option>
+                                
+                                    <option value="184.50.204.169">184.50.204.169</option>
+                                
+                                    <option value="72.10.32.90">72.10.32.90</option>
+                                
+                                    <option value="referral.tesla.com">referral.tesla.com</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+              <div id="filter-menu" class="card-header">
+                <div class="row no-gutters">
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'item')"
+                            id="select-item"
+                        >
+                        <option value="">Select a network item</option>
+                        <option value="edge">edge</option>
+                        <option value="node">node</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'property')"
+                            id="select-property"
+                        >
+                        <option value="">Select a property...</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="select-value"
+                        >
+                        <option value="">Select value(s)...</option>
+                    </select>
+                  </div>
+                  <div class="col-1 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="highlightFilter(filter);">Filter</button>
+                  </div>
+                  <div class="col-2 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="clearFilter(true)">Reset Selection</button>
+                  </div>
+                </div>
+              </div>
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+                  // explicitly using onItemAdd and this function as we need to save multiple values
+                  let updateValueFilter = function() {
+                      return function () {
+                      filter['value'].push(arguments[0])
+                      }
+                  }
+
+                  let valueControl = new TomSelect("#select-value",{
+                      maxItems: null,
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: updateValueFilter()
+                  });
+
+                  let addValues = function() {
+                      return function () {
+                          // clear the current value options and add the selected attribute values
+                          // tom-select handles duplicates
+                          let selectedProperty = arguments[0];
+                          valueControl.clear();
+                          valueControl.clearOptions();
+                          filter['value'] = []
+                          if (filter['item'] === 'node') {
+                              for (let each in allNodes) {
+                                  valueControl.addOption({
+                                      id:allNodes[each][selectedProperty],
+                                      title:allNodes[each][selectedProperty]
+                                  })
+                              }
+                          }
+                          else if (filter['item'] === 'edge') {
+                              for (let each in allEdges) {
+                                  valueControl.addOption({
+                                      id:allEdges[each][selectedProperty],
+                                      title:allEdges[each][selectedProperty]
+                                  })
+                              }
+                          }
+                      }
+                  };
+
+                  let propControl = new TomSelect("#select-property",{
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addValues()
+                  });
+
+                  let addProperties = function() {
+                      return function () {
+                          // loops through the selected network item and adds the attributes to dropdown
+                          // tom-select handles duplicates
+                          clearFilter(false)
+                          if (arguments[0] === 'edge') {
+                              for (let each in allEdges) {
+                                  if (allEdges.hasOwnProperty(each)) {
+                                      for (let eachProp in allEdges[each]) {
+                                          if (allEdges[each].hasOwnProperty(eachProp)) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                          else if (arguments[0] === 'node') {
+                              for (let each in allNodes) {
+                                  if (allNodes.hasOwnProperty(each)) {
+                                      for (let eachProp in allNodes[each]) {
+                                          if (allNodes[each].hasOwnProperty(eachProp)
+                                              && (eachProp !== 'hidden' && eachProp !== 'savedLabel'
+                                                  && eachProp !== 'hiddenLabel')) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  };
+
+                  let itemControl = new TomSelect("#select-item",{
+                      create: false,
+                      sortField:{
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addProperties()
+                  });
+
+                  function clearFilter(reset) {
+                      // utility function to clear all the selected filter options
+                      // if reset is set to true, the existing filter will be removed
+                      // else, only the dropdown options are cleared
+                      propControl.clear();
+                      propControl.clearOptions();
+                      valueControl.clear();
+                      valueControl.clearOptions();
+                      filter = {
+                          item : '',
+                          property : '',
+                          value : []
+                      }
+                      if (reset) {
+                          itemControl.clear();
+                          filterHighlight({nodes: []})
+                      }
+                  }
+
+                  function updateFilter(value, key) {
+                      // key could be 'item' or 'property' and value is as selected in dropdown
+                      filter[key] = value
+                  }
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "white"}, "group": "tesla.com", "id": "tesla.com", "label": "tesla.com", "labelHighlightBold": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "149.72.163.58", "id": "149.72.163.58", "label": "149.72.163.58", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "o4.ptr1867.tesla.com", "id": "o4.ptr1867.tesla.com", "label": "o4.ptr1867.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "o4.ptr1867.tesla.com"}, {"font": {"color": "white"}, "group": "13.111.49.179", "id": "13.111.49.179", "label": "13.111.49.179", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "view.emails.tesla.com", "id": "view.emails.tesla.com", "label": "view.emails.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "view.emails.tesla.com"}, {"font": {"color": "white"}, "group": "184.30.18.203", "id": "184.30.18.203", "label": "184.30.18.203", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "13.111.14.190", "id": "13.111.14.190", "label": "13.111.14.190", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "mta.email.tesla.com", "id": "mta.email.tesla.com", "label": "mta.email.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "mta.email.tesla.com"}, {"font": {"color": "white"}, "group": "149.72.247.52", "id": "149.72.247.52", "label": "149.72.247.52", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "o1.ptr2410.link.tesla.com", "id": "o1.ptr2410.link.tesla.com", "label": "o1.ptr2410.link.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "o1.ptr2410.link.tesla.com"}, {"font": {"color": "white"}, "group": "149.72.134.64", "id": "149.72.134.64", "label": "149.72.134.64", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "o2.ptr556.tesla.com", "id": "o2.ptr556.tesla.com", "label": "o2.ptr556.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "o2.ptr556.tesla.com"}, {"font": {"color": "white"}, "group": "168.245.123.10", "id": "168.245.123.10", "label": "168.245.123.10", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "o6.ptr9437.tesla.com", "id": "o6.ptr9437.tesla.com", "label": "o6.ptr9437.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "o6.ptr9437.tesla.com"}, {"font": {"color": "white"}, "group": "23.9.66.10", "id": "23.9.66.10", "label": "23.9.66.10", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "204.74.99.100", "id": "204.74.99.100", "label": "204.74.99.100", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "itanswers.tesla.com", "id": "itanswers.tesla.com", "label": "itanswers.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "itanswers.tesla.com"}, {"font": {"color": "white"}, "group": "xmail.tesla.com", "id": "xmail.tesla.com", "label": "xmail.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "xmail.tesla.com"}, {"font": {"color": "white"}, "group": "13.111.88.52", "id": "13.111.88.52", "label": "13.111.88.52", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "mta4.emails.tesla.com", "id": "mta4.emails.tesla.com", "label": "mta4.emails.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "mta4.emails.tesla.com"}, {"font": {"color": "white"}, "group": "149.72.144.42", "id": "149.72.144.42", "label": "149.72.144.42", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "o7.ptr6980.tesla.com", "id": "o7.ptr6980.tesla.com", "label": "o7.ptr6980.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "o7.ptr6980.tesla.com"}, {"font": {"color": "white"}, "group": "8.45.124.215", "id": "8.45.124.215", "label": "8.45.124.215", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "vpn1.tesla.com", "id": "vpn1.tesla.com", "label": "vpn1.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "vpn1.tesla.com"}, {"font": {"color": "white"}, "group": "13.111.4.231", "id": "13.111.4.231", "label": "13.111.4.231", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "mta2.email.tesla.com", "id": "mta2.email.tesla.com", "label": "mta2.email.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "mta2.email.tesla.com"}, {"font": {"color": "white"}, "group": "149.72.152.236", "id": "149.72.152.236", "label": "149.72.152.236", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "o3.ptr1444.tesla.com", "id": "o3.ptr1444.tesla.com", "label": "o3.ptr1444.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "o3.ptr1444.tesla.com"}, {"font": {"color": "white"}, "group": "184.85.228.70", "id": "184.85.228.70", "label": "184.85.228.70", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "96.16.108.43", "id": "96.16.108.43", "label": "96.16.108.43", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "205.234.27.221", "id": "205.234.27.221", "label": "205.234.27.221", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "shop.eu.tesla.com", "id": "shop.eu.tesla.com", "label": "shop.eu.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "shop.eu.tesla.com"}, {"font": {"color": "white"}, "group": "model3.tesla.com", "id": "model3.tesla.com", "label": "model3.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "model3.tesla.com"}, {"font": {"color": "white"}, "group": "13.111.88.53", "id": "13.111.88.53", "label": "13.111.88.53", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "mta5.emails.tesla.com", "id": "mta5.emails.tesla.com", "label": "mta5.emails.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "mta5.emails.tesla.com"}, {"font": {"color": "white"}, "group": "104.119.104.74", "id": "104.119.104.74", "label": "104.119.104.74", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "149.72.172.170", "id": "149.72.172.170", "label": "149.72.172.170", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "o5.ptr8466.tesla.com", "id": "o5.ptr8466.tesla.com", "label": "o5.ptr8466.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "o5.ptr8466.tesla.com"}, {"font": {"color": "white"}, "group": "199.66.9.47", "id": "199.66.9.47", "label": "199.66.9.47", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "www-uat.tesla.com", "id": "www-uat.tesla.com", "label": "www-uat.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "www-uat.tesla.com"}, {"font": {"color": "white"}, "group": "23.201.26.71", "id": "23.201.26.71", "label": "23.201.26.71", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "13.111.47.195", "id": "13.111.47.195", "label": "13.111.47.195", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "events.tesla.com", "id": "events.tesla.com", "label": "events.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "events.tesla.com"}, {"font": {"color": "white"}, "group": "13.111.18.27", "id": "13.111.18.27", "label": "13.111.18.27", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "emails.tesla.com", "id": "emails.tesla.com", "label": "emails.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "emails.tesla.com"}, {"font": {"color": "white"}, "group": "13.111.88.1", "id": "13.111.88.1", "label": "13.111.88.1", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "mta2.emails.tesla.com", "id": "mta2.emails.tesla.com", "label": "mta2.emails.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "mta2.emails.tesla.com"}, {"font": {"color": "white"}, "group": "13.111.47.196", "id": "13.111.47.196", "label": "13.111.47.196", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "marketing.tesla.com", "id": "marketing.tesla.com", "label": "marketing.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "marketing.tesla.com"}, {"font": {"color": "white"}, "group": "64.125.183.133", "id": "64.125.183.133", "label": "64.125.183.133", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "comparison.tesla.com", "id": "comparison.tesla.com", "label": "comparison.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "comparison.tesla.com"}, {"font": {"color": "white"}, "group": "184.50.204.169", "id": "184.50.204.169", "label": "184.50.204.169", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "72.10.32.90", "id": "72.10.32.90", "label": "72.10.32.90", "labelHighlightBold": true, "physics": true, "shape": "dot"}, {"font": {"color": "white"}, "group": "referral.tesla.com", "id": "referral.tesla.com", "label": "referral.tesla.com", "labelHighlightBold": true, "physics": true, "shape": "dot", "title": "referral.tesla.com"}]);
+                  edges = new vis.DataSet([{"arrowStrikethrough": true, "from": "149.72.163.58", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "o4.ptr1867.tesla.com", "title": "149.72.163.58", "to": "149.72.163.58"}, {"arrowStrikethrough": true, "from": "13.111.49.179", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "view.emails.tesla.com", "title": "13.111.49.179", "to": "13.111.49.179"}, {"arrowStrikethrough": true, "from": "184.30.18.203", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"arrowStrikethrough": true, "from": "13.111.14.190", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "mta.email.tesla.com", "title": "13.111.14.190", "to": "13.111.14.190"}, {"arrowStrikethrough": true, "from": "149.72.247.52", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "o1.ptr2410.link.tesla.com", "title": "149.72.247.52", "to": "149.72.247.52"}, {"arrowStrikethrough": true, "from": "149.72.134.64", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "o2.ptr556.tesla.com", "title": "149.72.134.64", "to": "149.72.134.64"}, {"arrowStrikethrough": true, "from": "168.245.123.10", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "o6.ptr9437.tesla.com", "title": "168.245.123.10", "to": "168.245.123.10"}, {"arrowStrikethrough": true, "from": "23.9.66.10", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"arrowStrikethrough": true, "from": "204.74.99.100", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "itanswers.tesla.com", "title": "204.74.99.100", "to": "204.74.99.100"}, {"from": "xmail.tesla.com", "title": "204.74.99.100", "to": "204.74.99.100"}, {"arrowStrikethrough": true, "from": "13.111.88.52", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "mta4.emails.tesla.com", "title": "13.111.88.52", "to": "13.111.88.52"}, {"arrowStrikethrough": true, "from": "149.72.144.42", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "o7.ptr6980.tesla.com", "title": "149.72.144.42", "to": "149.72.144.42"}, {"arrowStrikethrough": true, "from": "8.45.124.215", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "vpn1.tesla.com", "title": "8.45.124.215", "to": "8.45.124.215"}, {"arrowStrikethrough": true, "from": "13.111.4.231", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "mta2.email.tesla.com", "title": "13.111.4.231", "to": "13.111.4.231"}, {"arrowStrikethrough": true, "from": "149.72.152.236", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "o3.ptr1444.tesla.com", "title": "149.72.152.236", "to": "149.72.152.236"}, {"arrowStrikethrough": true, "from": "184.85.228.70", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"arrowStrikethrough": true, "from": "96.16.108.43", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"arrowStrikethrough": true, "from": "205.234.27.221", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "shop.eu.tesla.com", "title": "205.234.27.221", "to": "205.234.27.221"}, {"from": "model3.tesla.com", "title": "205.234.27.221", "to": "205.234.27.221"}, {"arrowStrikethrough": true, "from": "13.111.88.53", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "mta5.emails.tesla.com", "title": "13.111.88.53", "to": "13.111.88.53"}, {"arrowStrikethrough": true, "from": "104.119.104.74", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"arrowStrikethrough": true, "from": "149.72.172.170", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "o5.ptr8466.tesla.com", "title": "149.72.172.170", "to": "149.72.172.170"}, {"arrowStrikethrough": true, "from": "199.66.9.47", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "www-uat.tesla.com", "title": "199.66.9.47", "to": "199.66.9.47"}, {"arrowStrikethrough": true, "from": "23.201.26.71", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"arrowStrikethrough": true, "from": "13.111.47.195", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "events.tesla.com", "title": "13.111.47.195", "to": "13.111.47.195"}, {"arrowStrikethrough": true, "from": "13.111.18.27", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "emails.tesla.com", "title": "13.111.18.27", "to": "13.111.18.27"}, {"arrowStrikethrough": true, "from": "13.111.88.1", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "mta2.emails.tesla.com", "title": "13.111.88.1", "to": "13.111.88.1"}, {"arrowStrikethrough": true, "from": "13.111.47.196", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "marketing.tesla.com", "title": "13.111.47.196", "to": "13.111.47.196"}, {"arrowStrikethrough": true, "from": "64.125.183.133", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "comparison.tesla.com", "title": "64.125.183.133", "to": "64.125.183.133"}, {"arrowStrikethrough": true, "from": "184.50.204.169", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"arrowStrikethrough": true, "from": "72.10.32.90", "title": "tesla.com", "to": "tesla.com", "width": 3}, {"from": "referral.tesla.com", "title": "72.10.32.90", "to": "72.10.32.90"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 5.0,
+            "centralGravity": 0.01,
+            "damping": 2.0,
+            "gravitationalConstant": -80,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
