@@ -1,5 +1,7 @@
 # cobweb 蛛网 - 子域名和解析IP对应关系数据可视化
 
+![cobweb](https://socialify.git.ci/r00tSe7en/cobweb/image?description=1&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
+
 信息收集过程中，大型目标收集到的子域名和解析IP的关系错综复杂，肉眼分析起来费时又费力。
 
 cobweb 蛛网 将关联数据进行可视化显示，方便快速定位目标资产。
