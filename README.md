@@ -20,9 +20,9 @@ cobweb 蛛网 将关联数据进行可视化显示，方便快速定位目标资
 
 # 使用依赖
 
-> 仅限linux下使用
-
-> python3 [sudo pip3 install pyvis]
+> python3
+> 
+> [sudo pip3 install pyvis]
 
 # 使用方法
 
@@ -38,16 +38,20 @@ go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 dnsx -l collect_subdomains.txt -silent -a -resp | sed 's/\[//g' | sed 's/\]//g' | tee active_subdomains/active_subdomains2ips.txt
 ```
 
-3. 运行`Generate_yaml.sh`，得到`active_subdomains/active_subdomains2ips.yaml`
+3. 运行cobweb.py，浏览器会自动打开
 
 ```
-bash Generate_yaml.sh
-```
+usage: cobweb.py --domain example.com --file subdomains2ips.txt
 
-4. 运行cobweb.py，浏览器会自动打开
+Generate Network Graph For Sudomy.
 
-```
-sudo python3 cobweb.py --domain tesla.com --file active_subdomains/subdomains2ips.yaml
+options:
+  -h, --help       show this help message and exit
+  --domain DOMAIN
+  --file FILE      subdomains2ips.txt
+
+本例：
+sudo python3 cobweb.py --domain tesla.com --file active_subdomains/active_subdomains2ips.txt
 ```
 
 # 感谢
