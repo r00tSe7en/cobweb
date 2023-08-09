@@ -35,7 +35,11 @@ go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 2. 运行`dnsx`，获取子域名`collect_subdomains.txt`解析结果`active_subdomains2ips.txt`
 
 ```
-dnsx -l collect_subdomains.txt -silent -a -resp | sed 's/\[//g' | sed 's/\]//g' | tee active_subdomains/active_subdomains2ips.txt
+linux：
+dnsx -l collect_subdomains.txt -silent -a -resp | tee active_subdomains/active_subdomains2ips.txt
+
+windwos：
+dnsx -l collect_subdomains.txt -silent -a -resp -o active_subdomains/active_subdomains2ips.txt
 ```
 
 3. 运行cobweb.py，浏览器会自动打开
@@ -53,6 +57,9 @@ options:
 本例：
 sudo python3 cobweb.py --domain tesla.com --file active_subdomains/active_subdomains2ips.txt
 ```
+# 更新
+
+2023.08.09 - Python自动解析dnsx生成的结果文件，同时适配Win/Linux。
 
 # 感谢
 
