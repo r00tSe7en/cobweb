@@ -33,9 +33,8 @@ data = {}
 
 # 解析每一行的域名和 IP 地址
 for line in content:
-    line = line.strip()  # 去除换行符和空格
-    domain, ip = line.split()  # 按空格分割域名和 IP 地址
-
+    domain, ip = line.strip().split(' [')  # 按空格分割域名和 IP 地址
+    ip = ip[:-1]
     # 检查 IP 地址是否已经存在于字典中
     if ip in data:
         data[ip].append(domain)
